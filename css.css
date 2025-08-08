@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-/* Fondo espacial con gradiente más realista */
+/* Fondo espacial con gradiente*/
 body {
     margin: 0;
     padding: 0;
@@ -44,7 +44,7 @@ canvas {
     filter: contrast(105%) brightness(110%);
 }
 
-/* Efecto de partículas y estrellas */
+/* partículas y estrellas */
 @keyframes twinkle {
     0%, 100% { opacity: 0.3; }
     50% { opacity: 1; }
@@ -105,7 +105,7 @@ canvas {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Efecto de texto brillante */
+/*  texto brillante */
 .glow-text {
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
     animation: glow 2s ease-in-out infinite alternate;
@@ -116,7 +116,7 @@ canvas {
     to { text-shadow: 0 0 10px #fff, 0 0 20px #ff4da6, 0 0 30px #ff4da6, 0 0 40px #ff4da6; }
 }
 
-/* Efecto de partículas */
+/*partículas */
 .particle {
     position: absolute;
     background: #fff;
@@ -125,7 +125,7 @@ canvas {
     will-change: transform, opacity;
 }
 
-/* Estilos para imágenes flotantes */
+/* imágenes flotantes */
 .floating-image {
     position: absolute;
     pointer-events: none;
@@ -137,7 +137,7 @@ canvas {
     object-fit: contain;
 }
 
-/* Efecto de brillo al pasar el ratón */
+/*brillo al pasar el ratón */
 .floating-image:hover {
     filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.9)) brightness(1.2);
     transform: scale(1.05);
@@ -166,7 +166,7 @@ canvas {
     }
 }
 
-/* Efecto de partículas de fondo */
+/* partículas de fondo */
 .particle {
     position: absolute;
     background: #fff;
@@ -176,7 +176,7 @@ canvas {
     box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
 }
 
-/* Efecto de brillo en las estrellas */
+/* brillo en las estrellas */
 @keyframes starPulse {
     0%, 100% { 
         opacity: 0.3;
