@@ -1,0 +1,198 @@
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fondo espacial con gradiente más realista */
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: 
+        url('img/galaxia.jpg') center center / cover no-repeat fixed,
+        radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%),
+        linear-gradient(to bottom, rgba(13, 20, 40, 0.8) 0%, rgba(9, 14, 30, 0.9) 100%),
+        radial-gradient(ellipse at 50% 50%, rgba(25, 65, 100, 0.3) 0%, transparent 60%);
+    color: white;
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle></svg>') 12 12, auto;
+    min-height: 100vh;
+    perspective: 1000px;
+}
+
+/* Canvas: ocupa toda la pantalla con efectos */
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 1;
+    will-change: transform;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+    -ms-interpolation-mode: nearest-neighbor;
+    filter: contrast(105%) brightness(110%);
+}
+
+/* Efecto de partículas y estrellas */
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Mensaje de carga */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 1s ease-out;
+}
+
+.loading-screen.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Controles en pantalla */
+.controls {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    z-index: 10;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Efecto de texto brillante */
+.glow-text {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #e60073, 0 0 20px #e60073; }
+    to { text-shadow: 0 0 10px #fff, 0 0 20px #ff4da6, 0 0 30px #ff4da6, 0 0 40px #ff4da6; }
+}
+
+/* Efecto de partículas */
+.particle {
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    pointer-events: none;
+    will-change: transform, opacity;
+}
+
+/* Estilos para imágenes flotantes */
+.floating-image {
+    position: absolute;
+    pointer-events: none;
+    will-change: transform, opacity;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.7));
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    max-width: 200px;
+    max-height: 200px;
+    object-fit: contain;
+}
+
+/* Efecto de brillo al pasar el ratón */
+.floating-image:hover {
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.9)) brightness(1.2);
+    transform: scale(1.05);
+}
+
+/* Barra de progreso de carga */
+#loadingProgress {
+    margin-top: 15px;
+    font-size: 1.2em;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Ajustes para móviles */
+@media (max-width: 768px) {
+    .controls {
+        font-size: 12px;
+        padding: 8px 12px;
+        bottom: 10px;
+    }
+    
+    .floating-image {
+        max-width: 120px;
+        max-height: 120px;
+    }
+}
+
+/* Efecto de partículas de fondo */
+.particle {
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    pointer-events: none;
+    will-change: transform, opacity;
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Efecto de brillo en las estrellas */
+@keyframes starPulse {
+    0%, 100% { 
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+/* Clase para estrellas con brillo */
+.star {
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    animation: starPulse 2s infinite ease-in-out;
+    will-change: transform, opacity;
+}

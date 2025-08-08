@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Viaje Estelar Interactivo - Disfruta de un viaje a través del espacio con tus imágenes">
+    <title>Viaje Estelar 3D</title>
+    <link rel="stylesheet" href="css.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body >
+background-image: url('img/galaxy.jpg');
+    <!-- Pantalla de carga -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader"></div>
+        <h2 class="glow-text">Iniciando Viaje Estelar</h2>
+        <p>Preparando el espacio y cargando imágenes...</p>
+        <div id="loadingProgress">0%</div>
+    </div>
+
+    <!-- Canvas principal -->
+    <canvas id="galaxyCanvas"></canvas>
+
+    <!-- Controles en pantalla -->
+    <div class="controls">
+        <div>Desplázate por el espacio infinito</div>
+        <div>Usa la rueda del ratón para ajustar la velocidad</div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Esta función será accesible globalmente para actualizar la barra de progreso
+        window.updateLoadingProgress = function(percent) {
+            const progress = document.getElementById('loadingProgress');
+            if (progress) {
+                progress.textContent = `${Math.round(percent)}%`;
+            }
+        };
+
+        // Función para ocultar la pantalla de carga
+        window.hideLoadingScreen = function() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            if (loadingScreen) {
+                loadingScreen.style.opacity = '0';
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                }, 500);
+            }
+        };
+    </script>
+</body>
+</html>
